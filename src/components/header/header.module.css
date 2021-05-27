@@ -1,0 +1,25 @@
+.headerContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.formButton {
+  width: 192px;
+  height: 36px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ffffff;
+  background: linear-gradient(236.84deg, #9c8bea 1.49%, #544695 105.35%);
+  box-shadow: -4px 4px 15px rgba(129, 103, 227, 0.2);
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+}
+
+.formButton:hover,
+.formButton:focus {
+  background: linear-gradient(236.84deg, #b2f3b2 1.49%, #a6df0a 105.35%);
+}
