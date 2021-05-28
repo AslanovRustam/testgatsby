@@ -9,11 +9,8 @@ export default function Home() {
   let filteredData = { producer: "", price: "", quantity: "" }
   const formSubmitHandler = data => {
     filteredData = data
-    console.log("filteredData", filteredData)
     filteredItemsFromData()
-    // console.log("filteredItems", filteredItems)
   }
-  // console.log(Items[5].producer.split(""))
 
   const filteredItemsFromData = () => {
     let itemsAfterFilter = filterByProducer(Items)
@@ -21,29 +18,16 @@ export default function Home() {
     itemsAfterFilter = filterByQuantity(itemsAfterFilter)
     setItemsForRender(itemsAfterFilter)
   }
-
   const filterByProducer = items => {
+    let data = filteredData.producer.toLowerCase()
     if (filteredData.producer.length > 0) {
-      const itemsAfterFilterByPtoducer = items.filter(
-        item =>
-          item.producer.toLowerCase() === filteredData.producer.toLowerCase()
+      const itemsAfterFilterByPtoducer = items.filter(item =>
+        item.producer.toLowerCase().includes(data)
       )
       return itemsAfterFilterByPtoducer
     }
     return items
   }
-  // const filterByProducer = items => {
-  //   if (filteredData.producer.length > 0) {
-  //     const itemsAfterFilterByPtoducer = items.filter(item =>
-  //       item.producer
-  //         .toLowerCase()
-  //         .split("")
-  //         .includes(filteredData.producer.toLowerCase().split(""))
-  //     )
-  //     return itemsAfterFilterByPtoducer
-  //   }
-  //   return items
-  // }
 
   const filterByPrice = items => {
     if (filteredData.price > 0) {
@@ -68,29 +52,6 @@ export default function Home() {
     <>
       <Header onSubmit={formSubmitHandler} />
       <MainSection items={itemsForRender} />
-      {/* <MainSection items={filteredItemsFromData()} /> */}
     </>
   )
 }
-
-// const filteredItemsFromData = () => {
-//   Items.map(item => {
-//     if (
-//       item.producer.toLowerCase().includes(filteredData.producer.toLowerCase())
-//     ) {
-//       filteredItems.push(item)
-//       // console.log("filteredProducer", filteredProducer)
-//       // console.log("item.producer", item.producer)
-//     }
-//     return
-//   })
-//   return filteredItems
-// }
-/////////////////
-// let itemsAfterFilter = Items
-// if (filteredData.producer.length > 0) {
-//   itemsAfterFilter = Items.filter(
-//     item =>
-//       item.producer.toLowerCase() === filteredData.producer.toLowerCase()
-//   )
-// }
