@@ -2,7 +2,7 @@ import React from "react"
 import { useState } from "react"
 import * as s from "./header.module.css"
 
-export default function Header() {
+export default function Header({ onSubmit }) {
   const [producer, setProducer] = useState("")
   const [price, setPrice] = useState("")
   const [quantity, setQuantity] = useState("")
@@ -16,10 +16,14 @@ export default function Header() {
   const handleQuantityChange = e => {
     setQuantity(e.currentTarget.value)
   }
-
+  const data = {
+    producer,
+    price,
+    quantity,
+  }
   const handleSubmit = e => {
     e.preventDefault()
-
+    onSubmit(data)
     resetForm()
   }
 

@@ -1,5 +1,4 @@
 import React from "react"
-import { useState } from "react"
 import * as s from "./main.module.css"
 import Item from "../item/item"
 
